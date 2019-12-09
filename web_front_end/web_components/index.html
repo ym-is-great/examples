@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Components</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <template id="item">
+      <div>I am Component.</div>
+    </template>
+    <div>
+
+    </div>
+    <script>
+      class Item extends HTMLElement {
+        constructor() {
+          super()
+          const shadowRoot = this.attachShadow({ mode: 'open' })
+          const template = document.getElementById('tpl')
+          const node = document.importNode(template.content, true)
+          shadowRoot.appendChild(node)
+        }
+      }
+      
+    </script>
+  </body>
+</html>
